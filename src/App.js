@@ -110,6 +110,9 @@ removeItem(itemId) {
 const itemRef = firebase.database().ref(`/items/${itemId}`);
 itemRef.remove();
 }
+
+
+
   
   render() {
     return (
@@ -117,7 +120,35 @@ itemRef.remove();
         <header  className= "blue accent-2">
             <div className="wrapper">
               <h1>Peru Music Search</h1>
+
+              <p>     
+                <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Ingrese año . . ."/>
+                        </div>
+                    </div>
+                </div>
+              </div> 
+              </p>
+              <p>     
+                <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Ingrese genero. . ."/>
+                        </div>
+                    </div>
+                </div>
+              </div> 
+              </p>
+              <p>
+              <button    className="btn btn-large waves-effect waves-light hoverable  blue-purple accent-1  z-depth-3" style ={{borderRadius : "10px", }} >Buscar</button>
+              </p>
               
+         
+
               {this.state.user ?
                 <button className="btn btn-large waves-effect waves-light btn-small red accent-3" onClick={this.logout} style ={{borderRadius : "10px", }} >Logout</button>                
               :
@@ -149,33 +180,11 @@ itemRef.remove();
                           <label>Genero</label>
                       </div>
 
-                      <div className = "input-field col s6  activate" >
-                          <input type="text" name="artista"  onChange={this.handleChange} value={this.state.artista} /> 
-                          <label>Artista</label>
-                      </div>
+                      
 
-
-                      <div className = "input-field col s6  activate" >
-                          <input type="text" name="album"  onChange={this.handleChange} value={this.state.album} /> 
-                          <label>Album</label>
-                      </div>
-
-
-                      <div className = "input-field col s6  activate" >
-                          <input type="text" name="numero"  onChange={this.handleChange} value={this.state.numero} /> 
-                          <label>Numero</label>
-                      </div>
-                      <div className = "input-field col s6  activate" >
-                          <input type="text" name="precio"  onChange={this.handleChange} value={this.state.precio} /> 
-                          <label>Precio</label>
-                      </div>
-                      <div className = "input-field col s6  activate" >
-                          <input type="text" name="stock"  onChange={this.handleChange} value={this.state.stock} /> 
-                          <label>Stock</label>
-                      </div>
-
+      
                      
-                      <button className="btn btn-large waves-effect waves-light hoverable  blue-purple accent-1  z-depth-3" style ={{borderRadius : "10px", }} >Buscar</button>
+                      <button    className="btn btn-large waves-effect waves-light hoverable  blue-purple accent-1  z-depth-3" style ={{borderRadius : "10px", }} >Buscar</button>
                     </form>
               </section>
 
@@ -197,12 +206,11 @@ itemRef.remove();
                             <p className="grey-text text-darken-1 ">  Stock:{item.stock}</p>
                             <p>
                             <button 
-                                 className ="  btn btn-large waves-effect waves-light hoverable green accent-3 " 
-                                 onClick={this.login}
+                                  className ="  btn btn-large waves-effect waves-light hoverable green accent-3 " 
                                   style={{borderRadius:"15px" ,letterSpacing: '5px' , color: 'black' }}  
-                                  onClick={() => this.removeItem(item.id)}>
+                                  >
                                    Comprar
-                                </button>
+                              </button>
                               <input type="number" id="numproductos" name="productos"min="1" max="100">
                               </input> 
                             </p>
